@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
-const Counter = () => {
-  const [count, setCount] = useState(6);
+const Counter = (props) => {
+  console.log("props", props);
+  const [value, setCount] = useState(props.value);
 
-  const formatCount = () => (count === 0 ? <h1>Zero</h1> : count);
+  const formatCount = () => (value === 0 ? <h1>Zero</h1> : value);
 
   let classes = "badge m-2 badge-";
-  classes += count === 0 ? "warning" : "primary";
+  classes += value === 0 ? "warning" : "primary";
 
   const handleIncrement = (incrementBy) => {
-    setCount(count + incrementBy);
+    setCount(value + incrementBy);
 
     console.log("handle Increment clicked");
   };
