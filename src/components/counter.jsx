@@ -13,10 +13,6 @@ const Counter = (props) => {
     setCount(value + incrementBy);
   };
 
-  const handleDelete = () => {
-    console.log("delete clicked");
-  };
-
   return (
     <div>
       {props.children}
@@ -27,7 +23,10 @@ const Counter = (props) => {
       >
         increment
       </button>
-      <button onClick={handleDelete} className="btn btn-sm btn-danger m-2">
+      <button
+        onClick={() => props.onDelete(props.id)}
+        className="btn btn-sm btn-danger m-2"
+      >
         delete
       </button>
     </div>
