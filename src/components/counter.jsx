@@ -1,30 +1,20 @@
 import React, { useState } from "react";
 
 const Counter = (props) => {
-  console.log("props", props);
-  const [value, setCount] = useState(props.value);
-
-  const formatCount = () => (value === 0 ? <h1>Zero</h1> : value);
-
   let classes = "badge m-2 badge-";
-  classes += value === 0 ? "warning" : "primary";
-
-  const handleIncrement = (incrementBy) => {
-    setCount(value + incrementBy);
-  };
+  classes += props.counter.value === 0 ? "warning" : "primary";
 
   return (
     <div>
-      {props.children}
-      <span className={classes}>{formatCount()}</span>
+      <span className={classes}>{props.counter.value}</span>
       <button
-        onClick={() => handleIncrement(10)}
+        onClick={() => props.onIncrement(props.counter)}
         className={"btn btn-secondary btn-sm"}
       >
         increment
       </button>
       <button
-        onClick={() => props.onDelete(props.id)}
+        onClick={() => props.onDelete(props.counter.id)}
         className="btn btn-sm btn-danger m-2"
       >
         delete

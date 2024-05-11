@@ -13,14 +13,35 @@ const Counters = () => {
     setCounters(counters.filter((c) => c.id !== counterId));
   };
 
+  const handleReset = () => {
+    const countersReset = counters.map((c) => {
+      c.value = 0;
+      return c;
+    });
+
+    setCounters(countersReset);
+  };
+
+  const handleIncrement = (counter) => {
+    const countersUpdated = [...counters];
+    const index = countersUpdated.indexOf(counter);
+    countersUpdated[index] = { ...counter };
+    countersUpdated[index].value++;
+
+    setCounters(countersUpdated);
+  };
+
   return (
     <div>
+      <button onClick={handleReset} className={"btn btn-sm btn-primary"}>
+        Reset
+      </button>
       {counters.map((counter) => (
         <Counter
           key={counter.id}
-          id={counter.id}
-          value={counter.value}
+          counter={counter}
           onDelete={handleDelete}
+          onIncrement={handleIncrement}
         />
       ))}
     </div>
