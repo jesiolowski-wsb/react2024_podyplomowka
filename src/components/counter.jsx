@@ -20,11 +20,20 @@ const Counter = () => {
       <div>There are no tags</div>
     );
 
+  const handleIncrement = () => {
+    setCount((poprzedniaWartosc) => poprzedniaWartosc + 1);
+    setCount((poprzedniaWartosc) => poprzedniaWartosc + 1);
+
+    console.log("handle Increment clicked");
+  };
+
   return (
     <>
       {renderTags()}
       <span className={classes}>{formatCount()}</span>
-      <button className={"btn btn-secondary btn-sm"}>increment</button>
+      <button onClick={handleIncrement} className={"btn btn-secondary btn-sm"}>
+        increment
+      </button>
     </>
   );
 };
