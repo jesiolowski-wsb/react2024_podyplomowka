@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Counter = (props) => {
   let classes = "badge m-2 badge-";
