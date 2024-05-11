@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Counter = () => {
   const [count, setCount] = useState(6);
-  const [imageUrl, setimageUrl] = useState("https://picsum.photos/200");
+  const [tagsList, setTagsList] = useState(["tag1", "tag2", "tag3"]);
 
   const formatCount = () => (count === 0 ? <h1>Zero</h1> : count);
 
@@ -11,7 +11,11 @@ const Counter = () => {
 
   return (
     <>
-      <img src={imageUrl} />
+      <ul>
+        {tagsList.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
       <span className={classes}>{formatCount()}</span>
       <button className={"btn btn-secondary btn-sm"}>increment</button>
     </>
