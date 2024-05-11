@@ -11,18 +11,24 @@ const Counter = (props) => {
 
   const handleIncrement = (incrementBy) => {
     setCount(value + incrementBy);
+  };
 
-    console.log("handle Increment clicked");
+  const handleDelete = () => {
+    console.log("delete clicked");
   };
 
   return (
     <div>
+      {props.children}
       <span className={classes}>{formatCount()}</span>
       <button
         onClick={() => handleIncrement(10)}
         className={"btn btn-secondary btn-sm"}
       >
         increment
+      </button>
+      <button onClick={handleDelete} className="btn btn-sm btn-danger m-2">
+        delete
       </button>
     </div>
   );
