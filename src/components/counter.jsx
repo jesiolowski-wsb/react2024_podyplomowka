@@ -20,9 +20,8 @@ const Counter = () => {
       <div>There are no tags</div>
     );
 
-  const handleIncrement = () => {
-    setCount((poprzedniaWartosc) => poprzedniaWartosc + 1);
-    setCount((poprzedniaWartosc) => poprzedniaWartosc + 1);
+  const handleIncrement = (incrementBy) => {
+    setCount(count + incrementBy);
 
     console.log("handle Increment clicked");
   };
@@ -31,7 +30,10 @@ const Counter = () => {
     <>
       {renderTags()}
       <span className={classes}>{formatCount()}</span>
-      <button onClick={handleIncrement} className={"btn btn-secondary btn-sm"}>
+      <button
+        onClick={() => handleIncrement(10)}
+        className={"btn btn-secondary btn-sm"}
+      >
         increment
       </button>
     </>
