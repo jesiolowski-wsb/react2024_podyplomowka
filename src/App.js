@@ -33,6 +33,14 @@ function App() {
     setCounters(countersUpdated);
   };
 
+  const handleDecrement = (counter) => {
+    const countersUpdated = [...counters];
+    const index = countersUpdated.indexOf(counter);
+    countersUpdated[index] = { ...counter };
+    countersUpdated[index].value--;
+    setCounters(countersUpdated);
+  };
+
   return (
     <>
       <Navbar totalCounters={counters.filter((c) => c.value > 0).length} />
@@ -40,6 +48,7 @@ function App() {
         <Counters
           counters={counters}
           onIncrement={handleIncrement}
+          onDecrement={handleDecrement}
           onDelete={handleDelete}
           onReset={handleReset}
         />

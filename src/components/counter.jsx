@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Counter = (props) => {
   let classes = "badge m-2 badge-";
@@ -11,11 +11,18 @@ const Counter = (props) => {
         onClick={() => props.onIncrement(props.counter)}
         className={"btn btn-secondary btn-sm"}
       >
-        increment
+        +
+      </button>
+      <button
+        onClick={() => props.onDecrement(props.counter)}
+        className="btn btn-secondary btn-sm m-2"
+        disabled={props.counter.value === 0}
+      >
+        -
       </button>
       <button
         onClick={() => props.onDelete(props.counter.id)}
-        className="btn btn-sm btn-danger m-2"
+        className="btn btn-sm btn-danger"
       >
         delete
       </button>
